@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d6e72">
+<title>OKINAWA TRIP 2026</title>
+<style>
+:root{--bg:#f4fbfa;--card:#fff;--ink:#163235;--muted:#6d8182;--accent:#0d6e72;--line:#dce9e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif}
+header{padding:28px 20px 22px;background:linear-gradient(145deg,#0d6e72,#54a9a2);color:white;border-radius:0 0 28px 28px}
+.small{font-size:12px;letter-spacing:.12em;opacity:.85}.hero{font-size:32px;font-weight:800;margin:6px 0}.sub{font-size:14px;opacity:.9}
+nav{display:flex;gap:8px;overflow:auto;padding:14px 14px 4px;position:sticky;top:0;background:rgba(244,251,250,.95);z-index:3}
+nav button{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 14px;white-space:nowrap;font-weight:700;color:var(--ink)}
+nav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+main{padding:14px;max-width:720px;margin:auto}.day{display:none}.day.active{display:block}
+.title{font-size:24px;font-weight:800;margin:10px 4px 14px}.tag{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.08em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:10px 0;box-shadow:0 5px 18px #0d6e720d}
+.row{display:flex;gap:13px}.time{font-weight:800;color:var(--accent);min-width:58px}.desc{font-weight:650}.note{font-size:13px;color:var(--muted);margin-top:5px}
+.section{font-size:15px;font-weight:800;margin:22px 4px 8px}.pill{display:inline-block;background:#e5f3f1;color:var(--accent);padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800;margin:3px}
+.footer{padding:30px 10px 50px;text-align:center;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header><div class="small">3 NIGHTS / 4 DAYS · 2026.10.21 — 10.24</div><div class="hero">🌺 OKINAWA TRIP</div><div class="sub">北の大地から、南の島へ。</div></header>
+<nav id="nav"></nav>
+<main id="app"></main>
+<script>
+const days=[
+["DAY 1","10.21 WED","北の大地から、南の島へ",[
+["07:00","🏠 自宅出発"],["08:30","✈️ 新千歳空港 到着"],["09:20","SKY762｜新千歳 → 中部"],["11:10","中部空港 到着"],["11:20","🍱 乗り継ぎグルメ：味噌カツ補給｜矢場とん"],["12:40","SKY555｜中部 → 那覇"],["14:55","🌺 那覇空港 到着"],["15:00","🚝 ゆいレールでホテルへ｜ホテルグランビュー沖縄"],["16:00","🚌 東京バス → 瀬長島"],["16:30","🌴 瀬長島ウミカジテラス｜ガーリックシュリンプ"],["18:00","🚌 東京バス → 国際通り"],["20:00","🍖 Lucky Maximum"],["夜","🌙 沖縄初日の夜、ここから本番。"]]],
+["DAY 2","10.22 THU","石垣島、開幕。",[
+["07:00","朝食・出発準備"],["09:25","✈️ NH1765｜那覇 → 石垣"],["10:25","🏝️ 石垣島 到着"],["11:00","🚗 レンタカー受け取り"],["11:15","🍜 まずは八重山そばで腹ごしらえ｜平良商店"],["時間があれば","🥤 時間が許せば、南国チャージ｜島のジュース屋さん"],["12:30","🤿 海中探検隊、出動。｜サンフィッシュ石垣島"],["15:30","シュノーケリング終了予定"],["夕方","🏨 ANAインターコンチネンタル石垣リゾート｜チェックイン"],["20:00","🥩 石垣牛で優勝。｜焼肉MARU"]]],
+["DAY 3","10.23 FRI","朝から海。沖縄だから許される。",[
+["06:30","起床"],["07:00–08:00","☕ DINING CAFE 8DAY'S"],["08:00–10:00","🏖️ ホテル近くのビーチ"],["10:00–11:00","🚿 シャワー・荷造り・チェックアウト"],["11:30","🌮 朝活という名の腹ごしらえ｜タコス or タコライス"],["13:00","🚗 石垣レンタカー返却"],["14:20","✈️ NH1770｜石垣 → 那覇"],["15:25","那覇空港 到着"],["16:00","🚗 那覇空港でレンタカー受け取り"],["16:30","🏨 ホテル那覇シティ｜チェックイン"],["夕方","🇺🇸 突然のアメリカ｜アメリカンビレッジ"],["夜","🥩 Steak 88"],["21:00〜","🍻 もう一軒だけ（予定）｜国際通り"]]],
+["DAY 4","10.24 SAT","沖縄最終章",[
+["朝","☕ 朝食"],["午前","🛍️ 那覇観光＆お土産タイム｜買い忘れ、ありませんか？"],["14:00","🚗 レンタカー返却"],["15:25","✈️ SKY532｜那覇 → 茨城"],["18:00","茨城空港 到着"],["18:40","✈️ SKY795｜茨城 → 新千歳"],["20:00","❄️ 新千歳空港 到着｜現実へ帰還。"]]]
+];
+const nav=document.getElementById("nav"), app=document.getElementById("app");
+days.forEach((d,i)=>{let b=document.createElement("button");b.textContent=d[0];b.onclick=()=>show(i);nav.appendChild(b);
+let sec=document.createElement("section");sec.className="day";sec.innerHTML=`<div class="tag">${d[1]}</div><div class="title">${d[2]}</div>`+d[3].map(x=>`<div class="card"><div class="row"><div class="time">${x[0]}</div><div><div class="desc">${x[1]}</div></div></div></div>`).join("");app.appendChild(sec)});
+function show(i){document.querySelectorAll(".day").forEach((x,j)=>x.classList.toggle("active",i===j));document.querySelectorAll("nav button").forEach((x,j)=>x.classList.toggle("active",i===j));localStorage.day=i;scrollTo(0,0)}
+show(Number(localStorage.day||0));
+</script>
+</body></html>
